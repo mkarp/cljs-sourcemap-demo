@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail && cd "$(dirname "${BASH_SOURCE[0]}")/.."
-
-set -x
-
-npm install
-rm -rf compiled
-lein prod
-node compiled/first.js

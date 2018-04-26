@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail && cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+set -x
+
+rm -rf out
+npm install
+clj -m cljs.main -t node -O simple -o out/first.js -co "{:source-map \"out/main.js.map\"}" -c demo.first -w src/first
+node out/first.js
